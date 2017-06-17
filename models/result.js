@@ -4,7 +4,7 @@ const config    = require('../config/database');
 
 // Player Schema
 const ResultSchema = mongoose.Schema({
-  gameNumber: Number,
+  gameNum: Number,
   place: Number
 });
 

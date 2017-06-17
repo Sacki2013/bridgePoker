@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const Player = require('../models/player');
+const Result = require('../models/result');
 
 // Regiter Player
 router.post('/register', (req, res, next) => {
   let newPlayer = new Player({
     name: req.body.name,
-    gamesPlayed: 1,
+    gamesPlayed: 0,
     results: req.body.results,
-    points: 100
+    points: 0
   })
 
   Player.addPlayer(newPlayer, (err, player) => {
@@ -43,14 +44,16 @@ router.get('/player/:id', (req, res, next) => {
 // Add Results
 router.put('/player/:id', (req, res, next) => {
   Player.getPlayerById({'_id': req.params.id}, (err, player) => {
-    player.name = req.body.name || player.name;
-    player.gamesPlayed = req.body.gamesPlayed;
-    player.results.push(req.body.results),
+    player.results.push({
+      gameNum: req.body.gameNum,
+      place: req.body.place
+    });
+    player.gamesPlayed += 1;
     player.points += req.body.points;
 
     player.save((err, updPlayer) => {
       if(err) throw err;
-      res.json(player);
+      res.json(updPlayer);
     });
   });
 });

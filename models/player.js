@@ -3,7 +3,7 @@ const timeStamp = require('mongoose-timestamp');
 const config    = require('../config/database');
 
 const ResultSchema = mongoose.Schema({
-  gameNumber: Number,
+  gameNum: Number,
   place: Number
 });
 
