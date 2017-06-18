@@ -1,6 +1,5 @@
 // Dependencies
 const express     = require('express');
-const localTunnel = require('localtunnel');
 const path        = require('path');
 const cors        = require('cors');
 const bodyParser  = require('body-parser');
@@ -23,13 +22,6 @@ mongoose.connection.on('error', (err) => {
 // Initialize App and LocalTunnel
 const app = express();
 const port = process.env.PORT || 2204;
-const subDomain = 'bridgepokerleague';
-
-const tunnel = localTunnel(port, { subdomain: subDomain}, (err, tunnel) => {
-  if(err) throw err;
-  tunnel.url;
-  console.log(tunnel.url);
-});
 
 // Middleware
 app.use(cors());

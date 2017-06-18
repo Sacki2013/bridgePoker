@@ -1,4 +1,3 @@
 module.exports = {
-  db: 'mongodb://localhost:27017/bpl',
-  secret: 'temppass'
+  db: 'mongodb://admin:Steelroof461@ds121622.mlab.com:21622/bridgepoker'
 }

@@ -19,7 +19,9 @@ const PlayerSchema = mongoose.Schema({
   results: [ResultSchema],
   points: {
     type: Number
-  }
+  },
+  rebuys: Number,
+  addons: Number
 });
 
 PlayerSchema.plugin(timeStamp);
