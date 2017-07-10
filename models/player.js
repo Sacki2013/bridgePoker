@@ -21,7 +21,9 @@ const PlayerSchema = mongoose.Schema({
     type: Number
   },
   rebuys: Number,
-  addons: Number
+  addons: Number,
+  totalSpend: Number,
+  totalWinnings: Number
 });
 
 PlayerSchema.plugin(timeStamp);

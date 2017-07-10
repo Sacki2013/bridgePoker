@@ -9,6 +9,7 @@ const mongoose    = require('mongoose');
 const config  = require('./config/database');
 const players = require('./routes/players');
 const player  = require('./models/player');
+const finals  = require('./routes/finals');
 
 // Database Setup
 mongoose.connect(config.db);
@@ -28,6 +29,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use('/players', players);
+app.use('/finals', finals);
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Home Route

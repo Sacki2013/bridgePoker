@@ -10,7 +10,9 @@ router.post('/register', (req, res, next) => {
     gamesPlayed: 0,
     points: 0,
     rebuys: 0,
-    addons: 0
+    addons: 0,
+    totalSpend: 0,
+    totalWinnings: 0
   })
 
   Player.addPlayer(newPlayer, (err, player) => {
@@ -53,6 +55,8 @@ router.put('/player/:id', (req, res, next) => {
     player.points += req.body.points;
     player.rebuys += req.body.rebuys;
     player.addons += req.body.addons;
+    player.totalSpend += req.body.totalSpend;
+    player.totalWinnings += req.body.totalWinnings;
 
     player.save((err, updPlayer) => {
       if(err) throw err;
