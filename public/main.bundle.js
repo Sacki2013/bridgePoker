@@ -25,31 +25,30 @@ var AuthService = (function () {
     function AuthService(http) {
         this.http = http;
     }
-    // https://bridgepoker.herokuapp.com
     AuthService.prototype.registerPlayer = function (player) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:2204/players/register', player, { headers: headers }).map(function (res) { return res.json(); });
+        return this.http.post('https://bridgepoker.herokuapp.com/players/register', player, { headers: headers }).map(function (res) { return res.json(); });
     };
     AuthService.prototype.getPlayers = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.get('http://localhost:2204/players', { headers: headers }).map(function (res) { return res.json(); });
+        return this.http.get('https://bridgepoker.herokuapp.com/players', { headers: headers }).map(function (res) { return res.json(); });
     };
     AuthService.prototype.registerResults = function (results, id) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.put('http://localhost:2204/players/player/' + id, results, { headers: headers }).map(function (res) { return res.json(); });
+        return this.http.put('https://bridgepoker.herokuapp.com/players/player/' + id, results, { headers: headers }).map(function (res) { return res.json(); });
     };
     AuthService.prototype.getPlayer = function (id) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.get('http://localhost:2204/players/player/' + id, { headers: headers }).map(function (res) { return res.json(); });
+        return this.http.get('https://bridgepoker.herokuapp.com/players/player/' + id, { headers: headers }).map(function (res) { return res.json(); });
     };
     AuthService.prototype.getFinal = function (id) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.get('http://localhost:2204/finals/final/' + id, { headers: headers }).map(function (res) { return res.json(); });
+        return this.http.get('https://bridgepoker.herokuapp.com/finals/final/' + id, { headers: headers }).map(function (res) { return res.json(); });
     };
     AuthService = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(), 
