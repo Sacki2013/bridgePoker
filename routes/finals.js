@@ -32,7 +32,7 @@ router.get('/', (req, res, next) => {
   });
 });
 
-// Show Player
+// Show Final
 router.get('/final/:id', (req, res, next) => {
   Final.getFinalById({'_id': req.params.id}, (err, final) => {
     res.json(final)
@@ -43,8 +43,8 @@ router.put('/final/:id', (req, res, next) => {
   Final.getFinalById({'_id': req.params.id}, (err, final) => {
     final.potTotal += req.body.potTotal;
     final.results.push({
-      gameNum: req.body.results.gameNum,
-      amount: req.body.results.amount
+      gameNum: req.body.gameNum,
+      amount: req.body.amount
     });
 
     final.save((err, updPlayer) => {
